@@ -11,4 +11,7 @@ button.pixel {
   height: 1.25rem;
   float: left;
 }
+button.pixel:hover {
+  cursor: pointer;
+}
 </style>
