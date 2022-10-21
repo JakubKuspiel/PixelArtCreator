@@ -7,8 +7,8 @@ button.pixel {
   background-color: white;
   border-style: solid;
   border-width: 1px;
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 5rem;
+  height: 5rem;
   float: left;
 }
 button.pixel:hover {

@@ -1,32 +1,39 @@
 <script setup lang="ts">
 import pixel from "./components/pixel.vue";
-import { ref } from "vue";
+import { reactive, computed } from "vue";
+import { useDataStore } from './stores/data';
 
-let gridSize = ref(64);
-let pixelSize = ref(5);
-let canvasSize = ref(gridSize.value);
-let pickedColor = ref();
-let pixelColor = ref([0]);
+const dataStore = useDataStore();
+
+const testString = computed(() => dataStore.testString)
+
+const state = reactive({
+  pickedColor: dataStore.pickedColor,
+  pixelColor: dataStore.pixelColor,
+  gridSize: dataStore.gridSize,
+  pixelSize: dataStore.pixelSize,
+  canvasSize: dataStore.canvasSize,
+})
 
 function changeColor(picked: number) {
-  console.log("change Color to " + pickedColor.value);
-  pixelColor.value[picked] = pickedColor.value;
-}
+    console.log("change Color to " + state.pickedColor);
+    state.pixelColor[picked] = state.pickedColor;
+  }
 
-function changeGrid(picked: String) {
-  console.log("change grid to " + canvasSize.value);
-  if (picked == '8x8') {
-    gridSize.value = 64;
-    pixelSize.value = 5;
-  } else if (picked == '12x12') {
-    gridSize.value = 144;
-    pixelSize.value = 3.3;
-  } else if (picked == '16x16') {
-    gridSize.value = 256;
-    pixelSize.value = 2.5;
-  } else if (picked == '32x32') {
-    gridSize.value = 1024;
-    pixelSize.value = 1.25;
+function changeGrid(picked: Number) {
+  console.log("change grid to " + state.canvasSize);
+  if (picked == 64) {
+    state.gridSize = 64;
+    state.pixelSize = 5;
+  } else if (picked == 144) {
+    state.gridSize = 144;
+    state.pixelSize = 3.3;
+  } else if (picked == 256) {
+    state.gridSize = 256;
+    state.pixelSize = 2.5;
+  } else if (picked == 1024) {
+    state.gridSize = 1024;
+    state.pixelSize = 1.25;
   }
 }
 </script>
@@ -35,16 +42,21 @@ function changeGrid(picked: String) {
   <div class="container">
     <div>
       <p>Pick a Size:</p>
-      <select id="size" v-model="canvasSize" @change="changeGrid(canvasSize)">
-        <option>8x8</option>
-        <option>12x12</option>
-        <option>16x16</option>
-        <option>32x32</option>
+      <select
+        id="size"
+        v-model="state.canvasSize"
+        @change="changeGrid(state.canvasSize)"
+      >
+        <option value="62">8x8</option>
+        <option value="144">12x12</option>
+        <option value="256">16x16</option>
+        <option value="1024">32x32</option>
       </select>
-
+      <p>{{ testString }}</p>
       <p>Pick a color:</p>
-      <select id="color" v-model="pickedColor">
+      <select id="color" v-model="state.pickedColor">
         <option value="white">white</option>
+        <option value="black">black</option>
         <option value="red">red</option>
         <option value="blue">blue</option>
         <option value="green">green</option>
@@ -54,19 +66,19 @@ function changeGrid(picked: String) {
       <div>
         <div>
           picked color:
-          <p :style="{ color: pickedColor }">{{ pickedColor }}</p>
+          <p :style="{ color: state.pickedColor }">{{ state.pickedColor }}</p>
         </div>
       </div>
     </div>
 
     <div class="canvas">
-      <div v-for="i in gridSize" :key="i">
+      <div v-for="i in state.gridSize" :key="i">
         <div>
           <pixel
             :style="{
-              backgroundColor: pixelColor[i],
-              width: pixelSize + 'rem',
-              height: pixelSize + 'rem',
+              backgroundColor: state.pixelColor[i],
+              width: state.pixelSize + 'rem',
+              height: state.pixelSize + 'rem',
             }"
             @click="changeColor(i)"
           ></pixel>
