@@ -5,8 +5,6 @@ import { useDataStore } from './stores/data';
 
 const dataStore = useDataStore();
 
-const testString = computed(() => dataStore.testString)
-
 const state = reactive({
   pickedColor: dataStore.pickedColor,
   pixelColor: dataStore.pixelColor,
@@ -20,7 +18,7 @@ function changeColor(picked: number) {
     state.pixelColor[picked] = state.pickedColor;
   }
 
-function changeGrid(picked: Number) {
+function changeGrid(picked: number) {
   console.log("change grid to " + state.canvasSize);
   if (picked == 64) {
     state.gridSize = 64;
@@ -47,12 +45,11 @@ function changeGrid(picked: Number) {
         v-model="state.canvasSize"
         @change="changeGrid(state.canvasSize)"
       >
-        <option value="62">8x8</option>
+        <option value="64">8x8</option>
         <option value="144">12x12</option>
         <option value="256">16x16</option>
         <option value="1024">32x32</option>
       </select>
-      <p>{{ testString }}</p>
       <p>Pick a color:</p>
       <select id="color" v-model="state.pickedColor">
         <option value="white">white</option>
