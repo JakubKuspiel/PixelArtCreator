@@ -51,14 +51,15 @@ function changeGrid(picked: number) {
         <option value="1024">32x32</option>
       </select>
       <p>Pick a color:</p>
-      <select id="color" v-model="state.pickedColor">
+      <input type="color" v-model="state.pickedColor" />
+      <!-- <select id="color" v-model="state.pickedColor">
         <option value="white">white</option>
         <option value="black">black</option>
         <option value="red">red</option>
         <option value="blue">blue</option>
         <option value="green">green</option>
         <option value="yellow">yellow</option>
-      </select>
+      </select> -->
 
       <div>
         <div>
