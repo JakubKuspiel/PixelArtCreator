@@ -96,8 +96,8 @@ function printCanvas(){
           ></pixel>
         </div>
       </div>
+      <button class="button" @click="printCanvas">Download as png</button>
     </div>
-    <button class="button" @click="printCanvas">Download as png</button>
   </div>
 </template>
 
