@@ -67,7 +67,7 @@ function printCanvas(){
           <option value="256">16x16</option>
           <option value="1024">32x32</option>
         </select>
-        <h3>Color:</h3>
+        <h3>Color Palette:</h3>
         <input type="color" v-model="state.pickedColor" />
         <!-- <select id="color" v-model="state.pickedColor">
         <option value="white">white</option>
@@ -124,9 +124,9 @@ body {
 h1{
   font-family: 'Press Start 2P', Arial, Helvetica, sans-serif;
   font-weight: bold;
-  padding-bottom: 1rem;
   text-align: center;
 }
+
 h3{
   font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
   padding-top: 1rem;
