@@ -36,10 +36,6 @@ function changeGrid(picked: number) {
   }
 }
 
-function testPrint(){
-  console.log("print?")
-}
-
 function printCanvas(){
   const screenshotTarget:HTMLElement = document.getElementById('canvasArt');
 
@@ -101,7 +97,7 @@ function printCanvas(){
         </div>
       </div>
     </div>
-    <button @click="printCanvas">Download Artwork</button>
+    <button class="button" @click="printCanvas">Download as png</button>
   </div>
 </template>
 
@@ -111,5 +107,19 @@ function printCanvas(){
 }
 .canvas {
   width: 40rem;
+}
+
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.button:hover {
+  cursor: pointer;
 }
 </style>
