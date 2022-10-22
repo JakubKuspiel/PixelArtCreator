@@ -2,6 +2,7 @@
 import pixel from "./components/pixel.vue";
 import { reactive, computed } from "vue";
 import { useDataStore } from './stores/data';
+import html2canvas from 'html2canvas';
 
 const dataStore = useDataStore();
 
@@ -33,6 +34,23 @@ function changeGrid(picked: number) {
     state.gridSize = 1024;
     state.pixelSize = 1.25;
   }
+}
+
+function testPrint(){
+  console.log("print?")
+}
+
+function printCanvas(){
+  const screenshotTarget:HTMLElement = document.getElementById('canvasArt');
+
+  html2canvas(screenshotTarget, {width: 640, height: 640 }).then((c)=>{
+    const base64image = c.toDataURL("image/png");
+    let anchor = document.createElement('a');
+    anchor.setAttribute("href", base64image);
+    anchor.setAttribute("download", "my-image.png")
+    anchor.click();
+    anchor.remove();
+  })
 }
 </script>
 
@@ -69,7 +87,7 @@ function changeGrid(picked: number) {
       </div>
     </div>
 
-    <div class="canvas">
+    <div class="canvas" id="canvasArt">
       <div v-for="i in state.gridSize" :key="i">
         <div>
           <pixel
@@ -83,6 +101,7 @@ function changeGrid(picked: number) {
         </div>
       </div>
     </div>
+    <button @click="printCanvas">Download Artwork</button>
   </div>
 </template>
 
