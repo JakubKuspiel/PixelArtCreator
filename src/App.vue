@@ -153,9 +153,6 @@ h3{
 select{
     padding: 0.5rem;
 }
-select-items{
-    padding: 0.5rem;
-}
 
 /* Darker background on mouse-over */
 .btn:hover {
