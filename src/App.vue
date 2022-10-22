@@ -96,7 +96,7 @@ function printCanvas(){
           ></pixel>
         </div>
       </div>
-      <button class="button" @click="printCanvas">Download as png</button>
+      <button class="btn" @click="printCanvas">Download as png</button>
     </div>
   </div>
 </template>
@@ -109,5 +109,17 @@ function printCanvas(){
   width: 40rem;
 }
 
+.btn {
+  background-color: rgb(255,67,47,0.8);
+  border: none;
+  color: white;
+  padding: 12px 30px;
+  cursor: pointer;
+  font-size: 20px;
+}
 
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: rgb(255,67,47,1);
+}
 </style>
