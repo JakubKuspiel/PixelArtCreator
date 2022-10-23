@@ -44,7 +44,7 @@ function printCanvas(){
     const base64image = c.toDataURL("image/png");
     let anchor = document.createElement('a');
     anchor.setAttribute("href", base64image);
-    anchor.setAttribute("download", "my-image.png")
+    anchor.setAttribute("download", "my-pixel-art.png")
     anchor.click();
     anchor.remove();
   })
@@ -167,7 +167,7 @@ function printCanvas(){
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Condensed&display=swap');
 
 .controls{
-  background-color: rgb(245, 245, 245);
+  background-color: rgb(225, 225, 225);
   min-height: auto;
   min-width: auto;
   padding-bottom: 1rem;
