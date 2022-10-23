@@ -1,46 +1,38 @@
-# PixelArtCreator
+# Aufgabenergebnis
 
-This template should help get you started developing with Vue 3 in Vite.
+## Eingesetzte Technologien / Frameworks
 
-## Recommended IDE Setup
+Folgende Technolgien / Frameworks setze ich in meinem Projekt ein:
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+- JavaScript / TypeScript
+- Vue.js (Version 3) / Vite
 
-## Type Support for `.vue` Imports in TS
+Ich habe mich für Vue.js entschieden, weil Ich mit diesem Framework vertraut bin und Vue mit Vite eine bequeme Möglichkeit bietet ein Projekt aufzusetzen. 
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+## Eingesetzte 3rd Party Libraries
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+Ich setze in meinem Projekt die folgenden 3rd Party Libraries ein: (falls keine, Tabelle entfernen und begründen warum)
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+Name | Begründung
+--- | ---
+[html2canvas](https://html2canvas.hertzen.com/) | Erstellt einen Screenshot eines Ausgewählten DOM Elements. 
 
-## Customize configuration
+## Installation / Ausführen des Projektes
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+Beschreibe, wie wir uns das Projekt lokal anschauen können.
 
-## Project Setup
+Folgende Komponenten müssen lokal installiert sein:
 
-```sh
-npm install
+- Vue v3.2.38
+- Vite v3.0.9
+
+Um das Projekt lokal auszuführen, folgendes in der Commandline / Bash eingeben:
+
+```console
+$ git clone https://github.com/JakubKuspiel/PixelArtCreator.git PixelArtCreator
+$ cd PixelArtCreator
+$ npm install
+$ npm run dev
+
 ```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+---
