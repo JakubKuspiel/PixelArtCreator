@@ -4,7 +4,6 @@ import { reactive } from "vue";
 import { useDataStore } from './stores/data';
 import html2canvas from 'html2canvas';
 
-
 const dataStore = useDataStore();
 
 const state = reactive({
@@ -15,10 +14,12 @@ const state = reactive({
   canvasSize: dataStore.canvasSize,
 })
 
+// switches CSS color of picked pixel tile to currently picked color 
 function changeColor(picked: number) {
     state.pixelColor[picked] = state.pickedColor;
   }
 
+// changes the grid pattern by adjusting CSS size of pixel tiles and canvas
 function changeGrid(picked: number) {
   if (picked == 64) {
     state.gridSize = 64;
@@ -35,9 +36,12 @@ function changeGrid(picked: number) {
   }
 }
 
+// takes a screenshot of the current canvas element and downloads it
 function printCanvas(){
+  // error message for screenshotTarget does not seem to bother the app
   const screenshotTarget:HTMLElement = document.getElementById('canvasArt');
 
+  // html2canvas takes a screenshot of selected DOM element
   html2canvas(screenshotTarget, {width: 640, height: 640 }).then((c)=>{
     const base64image = c.toDataURL("image/png");
     let anchor = document.createElement('a');
