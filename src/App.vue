@@ -41,7 +41,7 @@ function printCanvas(){
   // error message for screenshotTarget does not seem to bother the app
   const screenshotTarget:HTMLElement = document.getElementById('canvasArt');
 
-  // html2canvas takes a screenshot of selected DOM element
+  // html2canvas library takes a screenshot of a selected DOM element
   html2canvas(screenshotTarget, {width: 640, height: 640 }).then((c)=>{
     const base64image = c.toDataURL("image/png");
     let anchor = document.createElement('a');
