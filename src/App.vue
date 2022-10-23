@@ -68,6 +68,61 @@ function printCanvas(){
           <option value="1024">32x32</option>
         </select>
         <h3>Color Palette:</h3>
+        <button
+          class="paletteTile"
+          @click="state.pickedColor = 'white'"
+          style="background-color: white"
+        ></button>
+        <button
+          class="paletteTile"
+          @click="state.pickedColor = 'black'"
+          style="background-color: black"
+        ></button>
+        <button
+          class="paletteTile"
+          @click="state.pickedColor = 'red'"
+          style="background-color: red"
+        ></button>
+        <button
+          class="paletteTile"
+          @click="state.pickedColor = 'green'"
+          style="background-color: green"
+        ></button>
+        <button
+          class="paletteTile"
+          @click="state.pickedColor = 'blue'"
+          style="background-color: blue"
+        ></button>
+        <button
+          class="paletteTile"
+          @click="state.pickedColor = 'yellow'"
+          style="background-color: yellow"
+        ></button>
+        <button
+          class="paletteTile"
+          @click="state.pickedColor = 'orange'"
+          style="background-color: orange"
+        ></button>
+        <button
+          class="paletteTile"
+          @click="state.pickedColor = 'pink'"
+          style="background-color: pink"
+        ></button>
+        <button
+          class="paletteTile"
+          @click="state.pickedColor = 'violet'"
+          style="background-color: violet"
+        ></button>
+        <button
+          class="paletteTile"
+          @click="state.pickedColor = 'purple'"
+          style="background-color: purple"
+        ></button>
+        <button
+          class="paletteTile"
+          @click="state.pickedColor = 'brown'"
+          style="background-color: brown"
+        ></button>
         <input type="color" v-model="state.pickedColor" />
         <!-- <select id="color" v-model="state.pickedColor">
         <option value="white">white</option>
@@ -81,12 +136,13 @@ function printCanvas(){
         <div>
           <div>
             <h3>Picked Color:</h3>
-            <p :style="{ color: state.pickedColor }">{{ state.pickedColor }}</p>
+            <p v-if="state.pickedColor" :style="{ color: state.pickedColor }">
+              {{ state.pickedColor }}
+            </p>
+            <p v-else style="font-style: italic">no color picked</p>
           </div>
         </div>
       </div>
-
-      <h3>Canvas:</h3>
       <div class="canvas" id="canvasArt">
         <div v-for="i in state.gridSize" :key="i">
           <div>
@@ -116,11 +172,26 @@ function printCanvas(){
   min-width: auto;
   padding-bottom: 1rem;
   padding-left: 1rem;
+  margin-bottom: 1rem;
 }
+.paletteTile {
+  border-style: solid;
+  border-width: 1px;
+  width: 2rem;
+  height: 2rem;
+  float: left;
+  margin-right: 3px;
+}
+.paletteTile:hover{
+  cursor: pointer
+}
+
 body {
   background-color: black;
 }
-
+p{
+  font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
+}
 h1{
   font-family: 'Press Start 2P', Arial, Helvetica, sans-serif;
   font-weight: bold;
