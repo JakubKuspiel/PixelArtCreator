@@ -1,4 +1,5 @@
 <template>
+  <!-- single pixel tile on canvas -->
   <button class="pixel"></button>
 </template>
 

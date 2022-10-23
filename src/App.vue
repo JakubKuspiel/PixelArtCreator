@@ -53,6 +53,8 @@ function printCanvas(){
   <div>
     <div class="container">
       <h1>Pixel Art Creator</h1>
+
+      <!-- control panel for color and grid size -->
       <div class="controls">
         <h3>Grid Size:</h3>
         <select
@@ -124,30 +126,29 @@ function printCanvas(){
         <input type="color" v-model="state.pickedColor" />
 
         <div>
-          <div>
-            <h3>Picked Color:</h3>
-            <p v-if="state.pickedColor" :style="{ color: state.pickedColor }">
-              {{ state.pickedColor }}
-            </p>
-            <p v-else style="font-style: italic">no color picked</p>
-          </div>
+          <h3>Picked Color:</h3>
+          <p v-if="state.pickedColor" :style="{ color: state.pickedColor }">
+            {{ state.pickedColor }}
+          </p>
+          <p v-else style="font-style: italic">no color picked</p>
         </div>
       </div>
+
+      <!-- pixel canvas -->
       <div class="canvas" id="canvasArt">
         <div v-for="i in state.gridSize" :key="i">
-          <div>
-            <pixel
-              :style="{
-                backgroundColor: state.pixelColor[i],
-                width: state.pixelSize + 'rem',
-                height: state.pixelSize + 'rem',
-              }"
-              @click="changeColor(i)"
-            ></pixel>
-          </div>
+          <pixel
+            :style="{
+              backgroundColor: state.pixelColor[i],
+              width: state.pixelSize + 'rem',
+              height: state.pixelSize + 'rem',
+            }"
+            @click="changeColor(i)"
+          ></pixel>
         </div>
-        <button class="btn" @click="printCanvas">Download as png</button>
       </div>
+      <!-- download current pixel canvas -->
+      <button class="btn" @click="printCanvas">Download as png</button>
     </div>
   </div>
 </template>
@@ -164,7 +165,7 @@ function printCanvas(){
   padding-left: 1rem;
   margin-bottom: 1rem;
 }
-.paletteTile {
+.paletteTile{
   border-style: solid;
   border-width: 1px;
   width: 2rem;
@@ -190,14 +191,14 @@ h3{
   font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
   padding-top: 1rem;
 }
-.container {
+.container{
   display: block;
 }
-.canvas {
+.canvas{
   width: 40rem;
 }
 
-.btn {
+.btn{
   background-color: rgb(255,67,47,0.8);
   margin-top: 0.5rem;
   margin-bottom: 1rem;
@@ -212,7 +213,7 @@ h3{
 select{
     padding: 0.5rem;
 }
-.btn:hover {
+.btn:hover{
   background-color: rgb(255,67,47,1);
 }
 </style>
