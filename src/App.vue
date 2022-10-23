@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import pixel from "./components/pixel.vue";
-import { reactive, computed } from "vue";
+import { reactive } from "vue";
 import { useDataStore } from './stores/data';
 import html2canvas from 'html2canvas';
 
@@ -16,12 +16,10 @@ const state = reactive({
 })
 
 function changeColor(picked: number) {
-    console.log("change Color to " + state.pickedColor);
     state.pixelColor[picked] = state.pickedColor;
   }
 
 function changeGrid(picked: number) {
-  console.log("change grid to " + state.canvasSize);
   if (picked == 64) {
     state.gridSize = 64;
     state.pixelSize = 5;
@@ -124,14 +122,6 @@ function printCanvas(){
           style="background-color: brown"
         ></button>
         <input type="color" v-model="state.pickedColor" />
-        <!-- <select id="color" v-model="state.pickedColor">
-        <option value="white">white</option>
-        <option value="black">black</option>
-        <option value="red">red</option>
-        <option value="blue">blue</option>
-        <option value="green">green</option>
-        <option value="yellow">yellow</option>
-      </select> -->
 
         <div>
           <div>
@@ -186,12 +176,10 @@ function printCanvas(){
   cursor: pointer
 }
 
-body {
-  background-color: black;
-}
 p{
   font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
 }
+
 h1{
   font-family: 'Press Start 2P', Arial, Helvetica, sans-serif;
   font-weight: bold;
@@ -224,8 +212,6 @@ h3{
 select{
     padding: 0.5rem;
 }
-
-/* Darker background on mouse-over */
 .btn:hover {
   background-color: rgb(255,67,47,1);
 }
